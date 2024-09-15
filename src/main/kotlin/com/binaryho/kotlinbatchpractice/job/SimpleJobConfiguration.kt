@@ -14,12 +14,17 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager
 
 @Configuration
 class SimpleJobConfiguration(
-    val jobRepository: JobRepository,
-    val transactionManager: DataSourceTransactionManager,
+    private val jobRepository: JobRepository,
+    private val transactionManager: DataSourceTransactionManager,
 ) {
+    companion object {
+        const val SIMPLE_JOB = "simpleJob"
+        const val SIMPLE_STEP = "simpleStep1"
+    }
+
     @Bean
     fun simpleJob(): Job =
-        JobBuilder("simple-job", jobRepository)
+        JobBuilder(SIMPLE_JOB, jobRepository)
             .start(simpleStep1(null))
             .build()
 
@@ -28,7 +33,7 @@ class SimpleJobConfiguration(
     fun simpleStep1(
         @Value("#{jobParameters['requestDate']}") requestDate: String?,
     ): Step =
-        StepBuilder("simple-step-1", jobRepository)
+        StepBuilder(SIMPLE_STEP, jobRepository)
             .tasklet(
                 { _, _ ->
                     println(">>>>>> Simple Step 1")
