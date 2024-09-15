@@ -1,7 +1,6 @@
-package com.binaryho.kotlinbatchpractice.job
+package com.binaryho.kotlinbatchpractice.job.chunk
 
 import com.binaryho.kotlinbatchpractice.entity.pay.Pay
-import com.binaryho.kotlinbatchpractice.entity.pay.PayRepository
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
 import org.springframework.batch.core.job.builder.JobBuilder
@@ -22,7 +21,6 @@ class JdbcCursorItemReaderJobConfiguration(
     private val dataSource: DataSource,
     private val jobRepository: JobRepository,
     private val transactionManager: DataSourceTransactionManager,
-    private val payRepository: PayRepository,
 ) {
     companion object {
         const val CHUNK_SIZE = 10
@@ -60,8 +58,9 @@ class JdbcCursorItemReaderJobConfiguration(
 
     private fun jdbcCursorItemWriter(): ItemWriter<Pay?> =
         ItemWriter<Pay?> { list: Chunk<out Pay?> ->
-            println("Current Pay=$list")
-            payRepository.saveAll(list)
+            list.forEach { pay ->
+                println("Current Pay=$pay")
+            }
         }
     //        JdbcBatchItemWriterBuilder<Pay>()
 //            .dataSource(dataSource)
