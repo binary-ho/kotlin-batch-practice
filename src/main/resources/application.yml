@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: kotlin-batch-practice
+
+  profiles:
+    active: local
+    include: ${spring.profiles.active}
+
+  batch:
+    job:
+      enabled: true
+    jdbc:
+      initialize-schema: always
+
+logging:
+  level:
+    org.springframework.batch: DEBUG
