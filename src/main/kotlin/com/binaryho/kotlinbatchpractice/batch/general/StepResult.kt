@@ -1,4 +1,4 @@
-package com.binaryho.kotlinbatchpractice.job.general
+package com.binaryho.kotlinbatchpractice.batch.general
 
 import org.springframework.batch.core.ExitStatus
 

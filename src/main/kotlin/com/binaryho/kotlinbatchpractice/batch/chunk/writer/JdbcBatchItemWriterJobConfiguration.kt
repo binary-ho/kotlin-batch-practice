@@ -1,4 +1,4 @@
-package com.binaryho.kotlinbatchpractice.job.chunk.writer
+package com.binaryho.kotlinbatchpractice.batch.chunk.writer
 
 import com.binaryho.kotlinbatchpractice.entity.pay.Pay
 import org.springframework.batch.core.Job

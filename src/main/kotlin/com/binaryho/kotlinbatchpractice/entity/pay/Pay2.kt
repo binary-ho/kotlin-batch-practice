@@ -4,7 +4,8 @@ import jakarta.persistence.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-@Entity(name = "PAY2")
+@Entity
+@Table(name = "PAY2")
 class Pay2(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
