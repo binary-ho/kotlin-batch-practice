@@ -1,4 +1,4 @@
-package com.binaryho.kotlinbatchpractice.job
+package com.binaryho.kotlinbatchpractice.job.general
 
 import org.springframework.batch.core.Step
 import org.springframework.batch.core.configuration.annotation.JobScope

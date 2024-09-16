@@ -1,7 +1,7 @@
-package com.binaryho.kotlinbatchpractice.job
+package com.binaryho.kotlinbatchpractice.job.general
 
-import com.binaryho.kotlinbatchpractice.job.OddDecider.Companion.EVEN
-import com.binaryho.kotlinbatchpractice.job.OddDecider.Companion.ODD
+import com.binaryho.kotlinbatchpractice.job.general.OddDecider.Companion.EVEN
+import com.binaryho.kotlinbatchpractice.job.general.OddDecider.Companion.ODD
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
 import org.springframework.batch.core.job.builder.JobBuilder
